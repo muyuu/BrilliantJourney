@@ -7,8 +7,8 @@ import { createStore } from 'redux';
 
 import reducers from './reducers';
 let store = createStore(reducers);
-console.log(store.getState()); // eslint-disable-line
 
+require('./stateTest')(store); // eslint-disable-line
 
 
 // Every time the state changes, log it
@@ -17,11 +17,6 @@ let unsubscribe = store.subscribe(() =>
     console.log(store.getState()) // eslint-disable-line
 );
 
-store.dispatch(startPlace('Tokyo'));
-store.dispatch(startDatetime(parseInt(new Date() / 1000)));
-
-// Stop listening to state updates
-unsubscribe();
 
 // const Root = () => (
 //     <Provider store={store}>
