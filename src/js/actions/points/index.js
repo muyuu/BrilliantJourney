@@ -1,32 +1,53 @@
 // @flow
-import {ADD_POINT_INPUT, SET_POINT_PLACE, SET_POINT_DATETIME} from "../actionTypes";
+import shortId from 'shortid';
+import {
+    ADD_POINT_INPUT,
+    SET_POINT_PLACE,
+    SET_POINT_ARRIVED_AT,
+    SET_POINT_DURATION,
+} from "../actionTypes";
 
 type PointPlace = {
     type: string,
     place: string
 };
-type PointDatetime = {
+type PointArrivedAt = {
     type: string,
-    datetime: string
+    arrivedAt: number
+};
+type PointDuration = {
+    type: string,
+    duration: number
 };
 
 export const addPoint = () =>{
     return {
         type: ADD_POINT_INPUT,
+        id: shortId(),
     };
 };
 
-export const pointPlace = (place: string ): PointPlace => {
+export const pointPlace = (id: string, place: string ): PointPlace => {
     return {
         type: SET_POINT_PLACE,
+        id,
         place,
     };
 };
 
-export const startDatetime = (datetime: string ): PointDatetime => {
+export const pointArrivedAt = (id: string, arrivedAt: number ): PointArrivedAt => {
     return {
-        type: SET_POINT_DATETIME,
-        datetime,
+        type: SET_POINT_ARRIVED_AT,
+        id,
+        arrivedAt,
+    };
+};
+
+export const pointDuration = (id: string, duration: number ): PointDuration => {
+    return {
+        type: SET_POINT_DURATION,
+        id,
+        duration,
     };
 };
 
