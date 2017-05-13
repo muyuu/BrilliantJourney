@@ -9,7 +9,6 @@ import reducers from './reducers';
 let store = createStore(reducers);
 console.log(store.getState()); // eslint-disable-line
 
-import {startPlace, startDatetime} from './actions/start';
 
 
 // Every time the state changes, log it
