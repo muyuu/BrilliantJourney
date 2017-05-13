@@ -1,0 +1,6 @@
+// @flow
+export const SET_START_PLACE = 'SET_START_PLACE';
+export const SET_START_DATETIME = 'SET_START_DATETIME';
+export const ADD_POINT_INPUT = 'ADD_POINT_INPUT';
+export const SET_POINT_PLACE = 'SET_POINT_PLACE';
+export const SET_POINT_DATETIME = 'SET_POINT_DATETIME';

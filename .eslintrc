@@ -1,0 +1,29 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "plugin:flowtype/recommended",
+        "plugin:react/recommended",
+        "eslint:recommended"
+    ],
+    "plugins": [
+        "flowtype",
+        "react"
+    ],
+
+    "env": {
+        "browser": true
+    },
+
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "semi": 2,
+        "react/prop-types": 0,
+        "react/no-find-dom-node": 0
+    }
+}
