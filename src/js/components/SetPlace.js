@@ -31,18 +31,26 @@ class SetPlace extends React.Component {
     }
 
     fetchGmapPlace(text){
-        let text1 = '%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%B6%B4%E3%83%B6%E5%B3%B6%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%985%E2%88%923-11';
+        // let text1 = '%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%B6%B4%E3%83%B6%E5%B3%B6%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%985%E2%88%923-11';
+        let text1 = '霞ヶ関';
         let url = `/api/place?q=${text1}`;
 
         return fetch(url)
-            .then(response => response.text())
+            .then(response => response.json())
             .then(json => {
-                console.log(json);
+                const places = json.predictions;
+                this.setState({places});
             });
     }
 
     render(){
-        let items = '';
+        let places = this.state.places.map(v =>{
+            return(
+                <li key={v.place_id}>
+                    {v.description}
+                </li>
+            );
+        });
 
         return (
             <div className="setPlace">
@@ -51,7 +59,7 @@ class SetPlace extends React.Component {
                 </div>
                 <div className="setPlace__suggest">
                     <ul className="setPlace__list">
-                        {items}
+                        {places}
                     </ul>
                 </div>
             </div>
