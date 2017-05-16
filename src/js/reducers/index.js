@@ -1,10 +1,10 @@
 // @flow
 import {combineReducers} from 'redux';
 import {points} from './points';
-import {siteinfo} from './siteInfo';
+import {siteInfo} from './siteInfo';
 
 const reducers = combineReducers({
-    siteinfo,
+    siteInfo,
     points,
 });
 
@@ -20,6 +20,7 @@ export default reducers;
             place: "Tokyo",
             arrivedAt: 1234567890, // timestamp
             duration: 1234567890, // msec
+            mode: 'DRIVING', // string(DRIVING, BICYCLING, TRANSIT, WALKING)
         }
     ]
 }

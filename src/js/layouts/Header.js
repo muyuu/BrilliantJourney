@@ -2,7 +2,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-const Header = props => {
+const Header = (props: {siteInfo: {name: string}}) => {
     return (
         <div className="header">
             <div className="header__title">
