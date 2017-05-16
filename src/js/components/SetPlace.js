@@ -18,7 +18,7 @@ class SetPlace extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.fetchGmapPlace = this.fetchGmapPlace.bind(this);
 
-        // this.fetchGmapPlace('abc');
+        this.fetchGmapPlace('abc');
     }
 
 
@@ -32,22 +32,13 @@ class SetPlace extends React.Component {
 
     fetchGmapPlace(text){
         let text1 = '%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%B6%B4%E3%83%B6%E5%B3%B6%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%985%E2%88%923-11';
-        let url = `${googleapi.autocomplete}&input=${text1}`;
-        let options = {
-            "headers": {
-                'Content-Type': 'application/json',
-            }
-        };
+        let url = `/api/place?q=${text1}`;
 
-        // return fetch(url, options)
-        //     .then(response => {
-        //         console.log(url);
-        //         console.log(response);
-        //         return response.text();
-        //     })
-        //     .then(json => {
-        //         console.log(json);
-        //     });
+        return fetch(url)
+            .then(response => response.text())
+            .then(json => {
+                console.log(json);
+            });
     }
 
     render(){
