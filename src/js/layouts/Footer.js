@@ -2,7 +2,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-const Footer = props => {
+const Footer = (props: {siteInfo: {name: string}}) => {
     return (
         <div className="footer">
             <div className="footer__copyright">

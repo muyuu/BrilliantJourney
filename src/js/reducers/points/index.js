@@ -18,7 +18,7 @@ export const points: Function = (state: Array<PointObj> = [], action: PointActio
         case SET_POINT_PLACE:
         case SET_POINT_ARRIVED_AT:
         case SET_POINT_DURATION:
-            return state.map(v => {
+            return state.map((v: PointObj): PointObj => {
                 if(v.id !== action.id) return v;
 
                 return point(v, action);

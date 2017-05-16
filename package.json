@@ -1,5 +1,5 @@
 {
-  "name": "brilliantJourney",
+  "name": "brilliant-journey",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -30,9 +30,12 @@
     "check": "flow check",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint ./src",
-    "serve": "webpack-dev-server --history-api-fallback",
+    "serve": "babel-node src/js/server.js",
     "start": "npm run serve & npm run watch",
     "watch": "webpack --progress --colors --watch"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "express": "^4.15.2"
+  }
 }
