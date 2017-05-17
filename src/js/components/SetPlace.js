@@ -3,8 +3,6 @@ import React from 'react';
 import {render } from 'react-dom';
 import fetch from 'isomorphic-fetch';
 
-import googleapi from '../conf/googleapis';
-
 
 class SetPlace extends React.Component {
     constructor(props){
@@ -65,6 +63,6 @@ class SetPlace extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default SetPlace;
