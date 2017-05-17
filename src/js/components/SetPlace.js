@@ -29,9 +29,7 @@ class SetPlace extends React.Component {
     }
 
     fetchGmapPlace(text){
-        // let text1 = '%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%B6%B4%E3%83%B6%E5%B3%B6%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%985%E2%88%923-11';
-        let text1 = '霞ヶ関';
-        let url = `/api/place?q=${text1}`;
+        let url = `/api/place?q=${text}`;
 
         return fetch(url)
             .then(response => response.json())
