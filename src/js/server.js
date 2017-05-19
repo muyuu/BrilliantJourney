@@ -11,6 +11,7 @@ const app = Express();
 const port = 3000;
 
 const apiV1Place = require('./api/v1/place');
+app.use('/api/place', apiV1Place);
 
 //Serve static files
 app.use(Express.static('dist'));
@@ -33,7 +34,6 @@ function handleRender(req, res) {
 
     // Grab the initial state from our Redux store
     const preloadedState = store.getState();
-app.use('/api/place', apiV1Place);
 
     // Send the rendered page back to the client
     res.send(renderFullPage(html, preloadedState));
