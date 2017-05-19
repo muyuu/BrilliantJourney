@@ -10,12 +10,13 @@ import App from './layouts/App';
 const app = Express();
 const port = 3000;
 
+const apiV1Place = require('./api/v1/place');
+app.use('/api/place', apiV1Place);
 
 //Serve static files
 app.use(Express.static('dist'));
 
 // This is fired every time the server side receives a request
-app.get('/api/place', handleApiPlace);
 app.use('/', handleRender);
 
 // We are going to fill these out in the sections to follow
@@ -64,25 +65,4 @@ function renderFullPage(html, preloadedState) {
 const server = app.listen(port, () => {
     console.log(`Example app listening on port ${server.address().port}!`);
 });
-
-import googleapi from './conf/googleapis';
-const googleMapsClient = require('googleplaces')(googleapi.key, googleapi.format);
-
-function handleApiPlace(req, res){
-    console.log('access /api/place');
-    let query = {
-        input: req.query.q,
-        language: 'ja',
-        type: 'geocode'
-    };
-
-    googleMapsClient.placeAutocomplete(query, (err, response)=>{
-        if (!err) {
-            res.contentType("application/json");
-            res.end(JSON.stringify(response));
-        } else {
-            res.json(err);
-        }
-    });
-}
 
