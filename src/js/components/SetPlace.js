@@ -1,7 +1,5 @@
-// @flow
 import React from 'react';
-import {render } from 'react-dom';
-import fetch from 'isomorphic-fetch';
+import {render} from 'react-dom';
 
 
 class SetPlace extends React.Component {
@@ -14,9 +12,6 @@ class SetPlace extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.fetchGmapPlace = this.fetchGmapPlace.bind(this);
-
-        this.fetchGmapPlace('abc');
     }
 
 
@@ -25,26 +20,21 @@ class SetPlace extends React.Component {
             text: e.target.value
         });
 
-        this.fetchGmapPlace(encodeURI(e.target.value));
+        this.props.onChangeText(encodeURI(e.target.value));
     }
 
-    fetchGmapPlace(text){
-        // let text1 = '%E5%9F%BC%E7%8E%89%E7%9C%8C%E9%B6%B4%E3%83%B6%E5%B3%B6%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%985%E2%88%923-11';
-        let text1 = '霞ヶ関';
-        let url = `/api/place?q=${text1}`;
-
-        return fetch(url)
-            .then(response => response.json())
-            .then(json => {
-                const places = json.predictions;
-                this.setState({places});
-            });
+    selectPlace(v){
+        this.setState({
+            text: v.description
+        });
+        this.props.clearSuggestedText();
     }
+
 
     render(){
-        let places = this.state.places.map(v =>{
+        let places = this.props.suggesttedWords.items.map(v =>{
             return(
-                <li key={v.place_id}>
+                <li key={v.place_id} onClick={ ()=> this.selectPlace(v)}>
                     {v.description}
                 </li>
             );
@@ -53,7 +43,7 @@ class SetPlace extends React.Component {
         return (
             <div className="setPlace">
                 <div className="setPlace__input">
-                    <input type="text" onChange={this.handleChange}/>
+                    <input type="text" onChange={this.handleChange} value={this.state.text}/>
                 </div>
                 <div className="setPlace__suggest">
                     <ul className="setPlace__list">

@@ -1,5 +1,3 @@
-// @flow
-
 const googleapi = ()=> {
     return {
         key   : 'AIzaSyCCqO_cGMqZWCpCvNX4GndvkBFgmYHGA-M',
