@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from '../reducers';
 import App from '../layouts/App';
@@ -10,7 +11,10 @@ import App from '../layouts/App';
 export const handleRender = (req, res) => {
     console.log('access /');
     // Create a new Redux store instance
-    const store = createStore(reducers);
+    const store = createStore(
+        reducers,
+        applyMiddleware(thunk),
+    );
 
     // Render the component to a string
     const html = ReactDOMServer.renderToString(
