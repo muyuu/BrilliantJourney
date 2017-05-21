@@ -3,10 +3,11 @@
 export type SuggestedPointName = {
     isFetching: boolean,
     items: Array<string>,
+    lastUpdate: number,
 }
 
 export type SuggestedWords = {
     type: string,
-    suggestedWords: Array<any>,
-    receivedAt: string,
+    suggestedWords: Array<Object>,
+    receivedAt: number,
 }
