@@ -2,7 +2,7 @@ import Express from 'express';
 import {handleRender} from './ssr/ssr';
 
 const app = Express();
-const port = 3000;
+const port = 9000;
 
 const apiV1Place = require('./api/v1/place');
 app.use('/api/place', apiV1Place);
