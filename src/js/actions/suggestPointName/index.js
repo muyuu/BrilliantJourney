@@ -5,16 +5,16 @@ import {
     RECEIVE_POINT_NAME_SUGGEST,
     CLEAR_SUGGESTED_TEXT,
 } from "../actionTypes";
-import {SuggestedWords} from '../../types/suggestedPointName';
+import type {SuggestedWords} from '../../types/suggestedPointName';
 
-const requestPointNameSuggest = (requestWord: string) =>{
+const requestPointNameSuggest = (requestWord: string): {type: string, requestWord: string} =>{
     return {
         type: REQUEST_POINT_NAME_SUGGEST,
         requestWord
     };
 };
 
-const receivePointNameSuggest = (suggestedWords: Array<string> ): SuggestedWords => {
+const receivePointNameSuggest = (suggestedWords: Array<Object> ): SuggestedWords => {
     return {
         type: RECEIVE_POINT_NAME_SUGGEST,
         suggestedWords,
@@ -24,7 +24,7 @@ const receivePointNameSuggest = (suggestedWords: Array<string> ): SuggestedWords
 
 export const fetchSuggestedPointName = (requestWord: string) =>{
 
-    return function(dispatch){
+    return function(dispatch: Function){
         let url = `/api/place?q=${requestWord}`;
 
         dispatch(requestPointNameSuggest(requestWord));
@@ -38,7 +38,7 @@ export const fetchSuggestedPointName = (requestWord: string) =>{
     };
 };
 
-export const clearSuggestedText = () =>{
+export const clearSuggestedText = (): {type: string, receivedAt: number} =>{
     return {
         type: CLEAR_SUGGESTED_TEXT,
         receivedAt: Date.now(),

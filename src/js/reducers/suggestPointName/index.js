@@ -4,12 +4,15 @@ import {
     RECEIVE_POINT_NAME_SUGGEST,
     CLEAR_SUGGESTED_TEXT,
 } from "../../actions/actionTypes";
-import {SuggestedPointName} from '../../types/suggestedPointName';
+import type {SuggestedPointName} from '../../types/suggestedPointName';
 
-export const suggestPointName = (state: SuggestedPointName = {
+const initialState = {
     isFetching: false,
-    items: []
-}, action): SuggestedPointName =>{
+    items: [],
+    lastUpdated: 0,
+};
+
+export const suggestPointName = (state: SuggestedPointName = initialState, action: Object): SuggestedPointName =>{
     switch(action.type){
         case REQUEST_POINT_NAME_SUGGEST:
             return Object.assign({}, state, {
