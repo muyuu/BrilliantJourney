@@ -1,11 +1,13 @@
 // @flow
 import {combineReducers} from 'redux';
+import {suggestPointName} from './suggestPointName';
 import {points} from './points';
 import {siteInfo} from './siteInfo';
 
 const reducers = combineReducers({
     siteInfo,
     points,
+    suggestPointName,
 });
 
 export default reducers;
@@ -13,17 +15,23 @@ export default reducers;
 
 // app state sample
 /* eslint-disable */
-{
+const stateSample = {
     points: [
         {
-            id: "abcdefghijklmn", // use shortId
-            place: "Tokyo",
+            id       : "abcdefghijklmn", // use shortId
+            place    : "Tokyo",
             arrivedAt: 1234567890, // timestamp
-            duration: 1234567890, // msec
-            mode: 'DRIVING', // string(DRIVING, BICYCLING, TRANSIT, WALKING)
+            duration : 1234567890, // msec
+            mode     : 'DRIVING', // string(DRIVING, BICYCLING, TRANSIT, WALKING)
         }
-    ]
-}
+    ],
+    suggestPointName: {
+        isFetching: false,
+        items: []
+    }
+};
+
+
 
 /**
  * データは極力汎用フォーマットでstateに入れておく
