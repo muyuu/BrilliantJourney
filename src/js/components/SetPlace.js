@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import {render } from 'react-dom';
-import fetch from 'isomorphic-fetch';
+import {render} from 'react-dom';
 
 
 class SetPlace extends React.Component {
@@ -14,9 +13,6 @@ class SetPlace extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.fetchGmapPlace = this.fetchGmapPlace.bind(this);
-
-        this.fetchGmapPlace('abc');
     }
 
 
@@ -25,24 +21,21 @@ class SetPlace extends React.Component {
             text: e.target.value
         });
 
-        this.fetchGmapPlace(encodeURI(e.target.value));
+        this.props.onChangeText(encodeURI(e.target.value));
     }
 
-    fetchGmapPlace(text){
-        let url = `/api/place?q=${text}`;
-
-        return fetch(url)
-            .then(response => response.json())
-            .then(json => {
-                const places = json.predictions;
-                this.setState({places});
-            });
+    selectPlace(v){
+        this.setState({
+            text: v.description
+        });
+        this.props.clearSuggestedText();
     }
+
 
     render(){
-        let places = this.state.places.map(v =>{
+        let places = this.props.suggesttedWords.items.map(v =>{
             return(
-                <li key={v.place_id}>
+                <li key={v.place_id} onClick={ ()=> this.selectPlace(v)}>
                     {v.description}
                 </li>
             );
@@ -51,7 +44,7 @@ class SetPlace extends React.Component {
         return (
             <div className="setPlace">
                 <div className="setPlace__input">
-                    <input type="text" onChange={this.handleChange}/>
+                    <input type="text" onChange={this.handleChange} value={this.state.text}/>
                 </div>
                 <div className="setPlace__suggest">
                     <ul className="setPlace__list">
