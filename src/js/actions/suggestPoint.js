@@ -1,40 +1,40 @@
 // @flow
 import fetch from 'isomorphic-fetch';
 import {
-    REQUEST_POINT_NAME_SUGGEST,
-    RECEIVE_POINT_NAME_SUGGEST,
+    REQUEST_POINT,
+    RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT,
-} from "../actionTypes";
-import type {SuggestedWords} from '../../types/suggestedPointName';
+} from "./actionTypes";
+import type {SuggestedWords} from '../types/suggestedPointName';
 
-const requestPointNameSuggest = (id: string, requestWord: string): {type: string, requestWord: string} =>{
+const requestPoint = (id: string, requestWord: string): {type: string, requestWord: string} =>{
     return {
-        type: REQUEST_POINT_NAME_SUGGEST,
+        type: REQUEST_POINT,
         requestWord,
         id,
     };
 };
 
-const receivePointNameSuggest = (id: string, suggestedWords: Array<Object> ): SuggestedWords => {
+const receivePoint = (id: string, suggestedWords: Array<Object> ): SuggestedWords => {
     return {
-        type: RECEIVE_POINT_NAME_SUGGEST,
+        type: RECEIVE_POINT,
         suggestedWords,
         id,
         receivedAt: Date.now(),
     };
 };
 
-export const fetchSuggestedPointName = (id: string, requestWord: string) =>{
+export const fetchPoint = (id: string, requestWord: string) =>{
     return function(dispatch: Function){
         let url = `/api/place?q=${requestWord}`;
 
-        dispatch(requestPointNameSuggest(id, requestWord));
+        dispatch(requestPoint(id, requestWord));
 
         return fetch(url)
             .then(response => response.json())
             .then(json => {
                 const places = json.predictions;
-                dispatch(receivePointNameSuggest(id, places));
+                dispatch(receivePoint(id, places));
             });
     };
 };

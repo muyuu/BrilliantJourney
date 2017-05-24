@@ -1,10 +1,10 @@
 // @flow
 import {
-    REQUEST_POINT_NAME_SUGGEST,
-    RECEIVE_POINT_NAME_SUGGEST,
+    REQUEST_POINT,
+    RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT,
-} from "../../actions/actionTypes";
-import type {SuggestedPointName} from '../../types/suggestedPointName';
+} from "../actions/actionTypes";
+import type {SuggestedPointName} from '../types/suggestedPointName';
 
 const initialState = {
     isFetching: false,
@@ -12,14 +12,14 @@ const initialState = {
     lastUpdated: 0,
 };
 
-export const suggestPointName = (state: SuggestedPointName = initialState, action: Object): SuggestedPointName =>{
+export const suggestPoint = (state: SuggestedPointName = initialState, action: Object): SuggestedPointName =>{
     switch(action.type){
-        case REQUEST_POINT_NAME_SUGGEST:
+        case REQUEST_POINT:
             return Object.assign({}, state, {
                 isFetching: true,
             });
 
-        case RECEIVE_POINT_NAME_SUGGEST:
+        case RECEIVE_POINT:
             return Object.assign({}, state, {
                 isFetching: false,
                 items: action.suggestedWords,

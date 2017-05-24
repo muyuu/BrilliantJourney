@@ -4,8 +4,9 @@ import {
     ADD_POINT_INPUT,
     SET_POINT_PLACE,
     SET_POINT_ARRIVED_AT,
+    SET_POINT_DEPARTURE_TIME,
     SET_POINT_DURATION,
-} from "../actionTypes";
+} from "./actionTypes";
 
 type PointPlace = {
     type: string,
@@ -32,6 +33,15 @@ export const pointPlace = (id: string, place: string ): PointPlace => {
         type: SET_POINT_PLACE,
         id,
         place,
+    };
+};
+
+export const pointDepartureTime = (id: string, departureTime: string ) => {
+    departureTime = new Date(departureTime).getTime();
+    return {
+        type: SET_POINT_DEPARTURE_TIME,
+        id,
+        departureTime,
     };
 };
 

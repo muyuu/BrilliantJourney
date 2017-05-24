@@ -1,5 +1,4 @@
 import {connect} from 'react-redux';
-import {addPoint} from '../actions/points';
 import Points from '../components/Points';
 
 const mapStateToProps = (state)=>{
@@ -10,9 +9,6 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = dispatch =>{
     return {
-        runInitial: ()=>{
-            dispatch(addPoint());
-        },
     };
 };
 

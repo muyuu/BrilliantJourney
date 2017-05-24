@@ -10,27 +10,19 @@ class Points extends React.Component {
 
     }
 
-    componentDidMount(){
-       this.props.runInitial();
-    }
-
     render(){
         let points = this.props.points.map((point, index) =>{
-            let label = `ポイント${index}`;
-            if(index === 0) label = '出発地点';
+            let label = `ポイント${index+1}`;
 
             return(
                 <div className="point" key={index}>
-                    <div className="point__head">
-                        <span>■ {label}</span>
-                    </div>
                     <Point index={index} point={point}/>
                 </div>
             );
         });
 
         return (
-            <div className="ponits">
+            <div className="points">
                 {points}
                 <AddPoint/>
             </div>

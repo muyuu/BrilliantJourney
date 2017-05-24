@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {pointArrivedAt, pointDuration} from '../actions/points';
+import {pointDuration} from '../actions/points';
 import Point from '../components/Point';
 
 const mapStateToProps = (state)=>{
@@ -8,9 +8,6 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = dispatch =>{
     return {
-        onChangeArrivedAt: (id, arrivedAt)=>{
-            dispatch(pointArrivedAt(id, arrivedAt));
-        },
         onChagenDuration: (id, duration)=>{
             dispatch(pointDuration(id, duration));
         },

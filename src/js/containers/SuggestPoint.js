@@ -1,7 +1,7 @@
 // @flow
 import {connect} from 'react-redux';
-import SetPlace from '../components/SetPlace';
-import {fetchSuggestedPointName, clearSuggestedText} from '../actions/suggestPointName';
+import SuggestPoint from '../components/SuggestPoint';
+import {fetchPoint, clearSuggestedText} from '../actions/suggestPoint';
 import {pointPlace} from '../actions/points';
 
 const mapStateToProps = (state)=>{
@@ -13,7 +13,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = dispatch =>{
     return {
         onChangeText: (id, text)=>{
-            dispatch(fetchSuggestedPointName(id, text));
+            dispatch(fetchPoint(id, text));
         },
         onApplyText: (id, text)=>{
             dispatch(pointPlace(id, text));
@@ -27,6 +27,6 @@ const mapDispatchToProps = dispatch =>{
 const AppSetPlace = connect(
     mapStateToProps,
     mapDispatchToProps
-)(SetPlace);
+)(SuggestPoint);
 
 export default AppSetPlace;

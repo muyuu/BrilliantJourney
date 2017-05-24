@@ -2,13 +2,12 @@ import React from 'react';
 import {render} from 'react-dom';
 
 
-class SetPlace extends React.Component {
+class SuggestPoint extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
             text: "",
-            places: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -42,12 +41,12 @@ class SetPlace extends React.Component {
         });
 
         return (
-            <div className="setPlace">
-                <div className="setPlace__input">
+            <div className="suggestPoint">
+                <div className="suggestPoint__input">
                     <input type="text" onChange={this.handleChange} value={this.state.text}/>
                 </div>
-                <div className="setPlace__suggest">
-                    <ul className="setPlace__list">
+                <div className="suggestPoint__suggest">
+                    <ul className="suggestPoint__list">
                         {places}
                     </ul>
                 </div>
@@ -56,4 +55,4 @@ class SetPlace extends React.Component {
     }
 }
 
-export default SetPlace;
+export default SuggestPoint;
