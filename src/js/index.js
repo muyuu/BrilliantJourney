@@ -28,6 +28,10 @@ const store = createStore(
     applyMiddleware(thunk),
 );
 
+let unsubscribe = store.subscribe(() =>
+    console.log(store.getState())
+);
+
 const Root = () => (
     <Provider store={store}>
         <App/>
@@ -35,3 +39,22 @@ const Root = () => (
 );
 
 render(<Root />, document.getElementById('app'));
+
+window.addEventListener('load',()=>{
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCCqO_cGMqZWCpCvNX4GndvkBFgmYHGA-M&callback=initGmaps';
+    document.body.appendChild(script);
+});
+
+window.initGmaps = ()=>{
+    const uluru = {lat: -25.363, lng: 131.044};
+    const map = new window.google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: uluru
+    });
+    const marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+};

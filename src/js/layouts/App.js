@@ -14,6 +14,7 @@ const App = () => {
             <div className="body">
                 <Map />
                 <Body />
+                <div id="map"></div>
             </div>
 
             <Footer />
