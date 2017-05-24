@@ -33,7 +33,7 @@ class SetPlace extends React.Component {
 
 
     render(){
-        let places = this.props.suggesttedWords.items.map(v =>{
+        let places = this.props.point.suggested.items.map(v =>{
             return(
                 <li key={v.place_id} onClick={ ()=> this.selectPlace(v)}>
                     {v.description}

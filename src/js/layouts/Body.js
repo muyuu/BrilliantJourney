@@ -2,12 +2,12 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import SetPlace from '../containers/SetPlace';
+import Points from '../containers/Points';
 
 const Body = (props: {siteInfo: {name: string}}) => {
     return (
         <div className="body">
-            <SetPlace/>
+            <Points />
         </div>
     );
 };

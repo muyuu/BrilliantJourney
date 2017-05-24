@@ -1,13 +1,11 @@
 // @flow
 import {combineReducers} from 'redux';
-import {suggestPointName} from './suggestPointName';
 import {points} from './points';
 import {siteInfo} from './siteInfo';
 
 const reducers = combineReducers({
     siteInfo,
     points,
-    suggestPointName,
 });
 
 export default reducers;

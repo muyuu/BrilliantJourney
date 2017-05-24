@@ -35,7 +35,8 @@ export const pointPlace = (id: string, place: string ): PointPlace => {
     };
 };
 
-export const pointArrivedAt = (id: string, arrivedAt: number ): PointArrivedAt => {
+export const pointArrivedAt = (id: string, arrivedAt: string ): PointArrivedAt => {
+    arrivedAt = new Date(arrivedAt).getTime();
     return {
         type: SET_POINT_ARRIVED_AT,
         id,
@@ -43,7 +44,8 @@ export const pointArrivedAt = (id: string, arrivedAt: number ): PointArrivedAt =
     };
 };
 
-export const pointDuration = (id: string, duration: number ): PointDuration => {
+export const pointDuration = (id: string, duration: string ): PointDuration => {
+    duration = parseInt(duration, 10);
     return {
         type: SET_POINT_DURATION,
         id,
