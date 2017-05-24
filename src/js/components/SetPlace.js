@@ -20,14 +20,15 @@ class SetPlace extends React.Component {
             text: e.target.value
         });
 
-        this.props.onChangeText(encodeURI(e.target.value));
+        this.props.onChangeText(this.props.point.id, encodeURI(e.target.value));
     }
 
     selectPlace(v){
         this.setState({
             text: v.description
         });
-        this.props.clearSuggestedText();
+        this.props.onApplyText(this.props.point.id, v.description);
+        this.props.clearSuggestedText(this.props.point.id);
     }
 
 

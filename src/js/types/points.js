@@ -12,4 +12,5 @@ export type PointObj = {
     place: string,
     arrivedAt: number,
     duration: number,
+    suggested: Object,
 }
