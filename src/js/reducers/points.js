@@ -42,7 +42,8 @@ const point = (state: PointObj, action: PointAction): PointObj =>{
         case ADD_POINT_INPUT:
             return {
                 id: action.id,
-                place: "",
+                name: '',
+                placeId: '',
                 arrivedAt: 0,
                 duration: 0,
                 suggested: {

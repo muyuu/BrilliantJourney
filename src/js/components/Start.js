@@ -5,7 +5,6 @@ import SuggestPoint from '../containers/SuggestPoint';
 class Start extends React.Component {
     constructor(props){
         super(props);
-        console.log(this.props);
     }
 
     onChangeDepartureTimeHandler(e){

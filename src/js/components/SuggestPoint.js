@@ -26,13 +26,14 @@ class SuggestPoint extends React.Component {
         this.setState({
             text: v.description
         });
-        this.props.onApplyText(this.props.point.id, v.description);
+        this.props.onApply(this.props.point.id, v);
         this.props.clearSuggestedText(this.props.point.id);
     }
 
 
     render(){
         let places = this.props.point.suggested.items.map(v =>{
+            console.log(v);
             return(
                 <li key={v.place_id} onClick={ ()=> this.selectPlace(v)}>
                     {v.description}

@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch =>{
         onChangeText: (id, text)=>{
             dispatch(fetchPoint(id, text));
         },
-        onApplyText: (id, text)=>{
-            dispatch(pointPlace(id, text));
+        onApply: (id, placeInfo)=>{
+            dispatch(pointPlace(id, placeInfo));
         },
         clearSuggestedText: (id)=>{
             dispatch(clearSuggestedText(id));

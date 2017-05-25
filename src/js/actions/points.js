@@ -28,11 +28,12 @@ export const addPoint = () =>{
     };
 };
 
-export const pointPlace = (id: string, place: string ): PointPlace => {
+export const pointPlace = (id: string, placeObject: {} ): PointPlace => {
     return {
         type: SET_POINT_PLACE,
         id,
-        place,
+        name: placeObject.description,
+        placeId: placeObject.place_id,
     };
 };
 
