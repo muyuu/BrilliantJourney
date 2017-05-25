@@ -33,7 +33,12 @@ export const fetchPoint = (id: string, requestWord: string) =>{
         return fetch(url)
             .then(response => response.json())
             .then(json => {
-                const places = json.predictions;
+                const places = json.predictions.map((v)=>{
+                    return {
+                        description: v.description,
+                        place_id: v.place_id,
+                    };
+                });
                 dispatch(receivePoint(id, places));
             });
     };
