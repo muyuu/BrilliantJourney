@@ -1,4 +1,3 @@
-// @flow
 import {
     ADD_POINT_INPUT,
     SET_POINT_PLACE,

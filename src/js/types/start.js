@@ -1,5 +1,5 @@
 // @flow
-import {PlaceElement} from './suggested';
+import type {PlaceElement} from './suggested';
 
 export type Start = {
     id: string,
