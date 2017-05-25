@@ -1,13 +1,11 @@
-// @flow
 import fetch from 'isomorphic-fetch';
 import {
     REQUEST_POINT,
     RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT,
 } from "./actionTypes";
-import type {SuggestedWords} from '../types/suggestedPointName';
 
-const requestPoint = (id: string, requestWord: string): {type: string, requestWord: string} =>{
+const requestPoint = (id, requestWord) =>{
     return {
         type: REQUEST_POINT,
         requestWord,
@@ -15,7 +13,7 @@ const requestPoint = (id: string, requestWord: string): {type: string, requestWo
     };
 };
 
-const receivePoint = (id: string, suggestedWords: Array<Object> ): SuggestedWords => {
+const receivePoint = (id, suggestedWords) => {
     return {
         type: RECEIVE_POINT,
         suggestedWords,
@@ -24,8 +22,8 @@ const receivePoint = (id: string, suggestedWords: Array<Object> ): SuggestedWord
     };
 };
 
-export const fetchPoint = (id: string, requestWord: string) =>{
-    return function(dispatch: Function){
+export const fetchPoint = (id, requestWord) =>{
+    return function(dispatch){
         let url = `/api/place?q=${requestWord}`;
 
         dispatch(requestPoint(id, requestWord));
@@ -44,7 +42,7 @@ export const fetchPoint = (id: string, requestWord: string) =>{
     };
 };
 
-export const clearSuggestedText = (id: string): {type: string, receivedAt: number} =>{
+export const clearSuggestedText = (id) =>{
     return {
         type: CLEAR_SUGGESTED_TEXT,
         id,

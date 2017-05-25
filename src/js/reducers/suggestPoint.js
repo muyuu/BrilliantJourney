@@ -1,10 +1,8 @@
-// @flow
 import {
     REQUEST_POINT,
     RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT,
 } from "../actions/actionTypes";
-import type {SuggestedPointName} from '../types/suggestedPointName';
 
 const initialState = {
     isFetching: false,
@@ -12,7 +10,7 @@ const initialState = {
     lastUpdated: 0,
 };
 
-export const suggestPoint = (state: SuggestedPointName = initialState, action: Object): SuggestedPointName =>{
+export const suggestPoint = (state = initialState, action) =>{
     switch(action.type){
         case REQUEST_POINT:
             return Object.assign({}, state, {

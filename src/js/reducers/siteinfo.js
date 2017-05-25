@@ -1,10 +1,8 @@
-// @flow
-
 const initialSiteInfo = {
     name: "brilliantJourney",
 };
 
-export const siteInfo = (state: {name: string} = initialSiteInfo, action: {type: string}) => {
+export const siteInfo = (state = initialSiteInfo, action) => {
     switch(action.type){
         default:
             return state;

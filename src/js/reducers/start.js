@@ -1,4 +1,3 @@
-// @flow
 import shortId from 'shortid';
 import {
     SET_POINT_PLACE,

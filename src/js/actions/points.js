@@ -1,25 +1,11 @@
-// @flow
 import shortId from 'shortid';
 import {
     ADD_POINT_INPUT,
     SET_POINT_PLACE,
-    SET_POINT_ARRIVED_AT,
+    SET_POINT_ARRIVAL_TIME,
     SET_POINT_DEPARTURE_TIME,
     SET_POINT_DURATION,
 } from "./actionTypes";
-
-type PointPlace = {
-    type: string,
-    place: string
-};
-type PointArrivedAt = {
-    type: string,
-    arrivedAt: number
-};
-type PointDuration = {
-    type: string,
-    duration: number
-};
 
 export const addPoint = () =>{
     return {
@@ -28,7 +14,7 @@ export const addPoint = () =>{
     };
 };
 
-export const pointPlace = (id: string, placeObject: {} ): PointPlace => {
+export const pointPlace = (id, placeObject) => {
     return {
         type: SET_POINT_PLACE,
         id,
@@ -37,7 +23,7 @@ export const pointPlace = (id: string, placeObject: {} ): PointPlace => {
     };
 };
 
-export const pointDepartureTime = (id: string, departureTime: string ) => {
+export const pointDepartureTime = (id, departureTime) => {
     departureTime = new Date(departureTime).getTime();
     return {
         type: SET_POINT_DEPARTURE_TIME,
@@ -46,16 +32,16 @@ export const pointDepartureTime = (id: string, departureTime: string ) => {
     };
 };
 
-export const pointArrivedAt = (id: string, arrivedAt: string ): PointArrivedAt => {
-    arrivedAt = new Date(arrivedAt).getTime();
+export const pointArrivalTime = (id, arrivalTime) => {
+    arrivalTime = new Date(arrivalTime).getTime();
     return {
-        type: SET_POINT_ARRIVED_AT,
+        type: SET_POINT_ARRIVAL_TIME,
         id,
-        arrivedAt,
+        arrivalTime,
     };
 };
 
-export const pointDuration = (id: string, duration: string ): PointDuration => {
+export const pointDuration = (id, duration) => {
     duration = parseInt(duration, 10);
     return {
         type: SET_POINT_DURATION,
