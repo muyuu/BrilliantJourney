@@ -8,3 +8,8 @@ export type Start = {
     departureTime: number,
     suggested: PlaceElement,
 }
+
+export type StartState = {
+    start: Start
+}
+
