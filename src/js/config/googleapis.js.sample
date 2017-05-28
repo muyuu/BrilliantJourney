@@ -1,0 +1,16 @@
+const googleapi = ()=> {
+    return {
+        key   : 'YOUR API KEY',
+        url   : 'https://maps.googleapis.com/maps/api/',
+        format: 'json',
+
+        get directions(){
+            return `${this.url}directions/${this.format}?key=${this.key}`;
+        },
+        get autocomplete(){
+            return `${this.url}place/autocomplete/${this.format}?key=${this.key}&language=ja&type=geocode`;
+        },
+    };
+};
+
+export default googleapi();

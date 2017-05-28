@@ -31,4 +31,4 @@ dist/assets/js/
 dist/assets/css/
 
 # config
-src/js/config/
+src/js/config/googleapis.js
