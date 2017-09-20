@@ -13,4 +13,4 @@ const googleapi = ()=> {
     };
 };
 
-export default googleapi();
+module.exports = googleapi();
