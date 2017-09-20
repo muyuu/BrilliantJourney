@@ -1,4 +1,5 @@
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const assetsPath = path.resolve(__dirname, 'dist/assets');
 
@@ -10,6 +11,7 @@ module.exports = {
     },
     devtool: "#eval-source-map",
     plugins: [
+        new ExtractTextPlugin('/css/style.css'),
     ],
     module: {
         rules: [
@@ -23,7 +25,21 @@ module.exports = {
             },
             {
                 test: /\.p?css$/,
-                loader: 'css-loader?importLoaders=1!postcss-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                modules: true,
+                                importLoaders: 1,
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
+                            }
+                        },
+                        'postcss-loader',
+                    ],
+                }),
             },
         ]
     },

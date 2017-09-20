@@ -9,3 +9,6 @@ export const REQUEST_POINT = 'REQUEST_POINT';
 export const RECEIVE_POINT = 'RECEIVE_POINT';
 export const CLEAR_SUGGESTED_TEXT = 'CLEAR_SUGGESTED_TEXT';
 
+// search
+export const REQUEST_SEARCH = 'REQUEST_SEARCH';
+export const RECEIVE_SEARCH = 'RECEIVE_SEARCH';

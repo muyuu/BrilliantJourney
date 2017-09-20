@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import {render} from 'react-dom';
 
 import Start from '../containers/Start';
 import Points from '../containers/Points';

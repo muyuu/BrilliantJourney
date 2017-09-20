@@ -1,5 +1,4 @@
-import Express from 'express';
-import {handleRender} from './ssr/ssr';
+const Express = require('express');
 
 const app = Express();
 const port = 9000;
@@ -11,9 +10,11 @@ app.use('/api/place', apiV1Place);
 app.use(Express.static('dist'));
 
 // This is fired every time the server side receives a request
-app.use('/', handleRender);
+app.use('/', (req, res)=>{
+    res.send('test');
+});
 
 const server = app.listen(port, () => {
-    console.log(`Example app listening on port ${server.address().port}!`);
+    console.log(`Example app listening on http://localhost:${server.address().port}!`);
 });
 
