@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import reducers from '../reducers';
-import App from '../layouts/App';
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const { createStore, applyMiddleware } = require('redux');
+const thunk = require('redux-thunk');
+const { Provider } = require('react-redux');
+const reducers = require('../reducers');
+const App = require('../layouts/App');
 
 
 // We are going to fill these out in the sections to follow
-export const handleRender = (req, res) => {
+const handleRender = (req, res) => {
     console.log('access /');
     // Create a new Redux store instance
     const store = createStore(
@@ -51,4 +51,8 @@ const renderFullPage = (html, preloadedState) => {
             </body>
         </html>
         `;
+};
+
+module.exports = {
+    handleRender,
 };

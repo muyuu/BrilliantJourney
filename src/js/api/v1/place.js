@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const googleapi = require('../../config/googleapis');
-console.log(googleapi.key);
-console.log(googleapi.format);
 const googleMapsClient = require('googleplaces')(googleapi.key, googleapi.format);
 
 
