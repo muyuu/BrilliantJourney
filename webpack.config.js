@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const assetsPath = path.resolve(__dirname, 'dist/assets');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: './src/index.js',
     output: {
         path: assetsPath,
         filename: 'js/index.js'

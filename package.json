@@ -37,7 +37,7 @@
     "check": "flow check",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint ./src",
-    "serve": "node src/js/server.js",
+    "serve": "node src/server.js",
     "start": "npm run serve & npm run watch",
     "watch": "webpack --progress --colors --watch"
   },
