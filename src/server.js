@@ -4,7 +4,9 @@ const app = Express();
 const port = 9000;
 
 const apiV1Place = require('./api/v1/place');
+const apiV1Directions = require('./api/v1/directions');
 app.use('/api/place', apiV1Place);
+app.use('/api/directions', apiV1Directions);
 
 //Serve static files
 app.use(Express.static('dist'));
