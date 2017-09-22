@@ -1,33 +1,23 @@
 import React from 'react';
-import {render} from 'react-dom';
 
-import AddPoint from '../containers/AddPoint';
 import Point from '../containers/Point';
+import Btn from './atoms/Btn';
 
-class Points extends React.Component {
-    constructor(props){
-        super(props);
+const renderPoints = (points) => points.map((point, index) => (
+    <div className="point" key={index}>
+        <Point index={index} point={point}/>
+    </div>
+    ));
 
-    }
+const Points = ({
+    points,
+    addPoint,
+ }) => (
+    <div className="points">
+        {renderPoints(points)}
+        <Btn label='行きたい場所を追加' onClick={addPoint}/>
+    </div>
+);
 
-    render(){
-        let points = this.props.points.map((point, index) =>{
-            let label = `ポイント${index+1}`;
-
-            return(
-                <div className="point" key={index}>
-                    <Point index={index} point={point}/>
-                </div>
-            );
-        });
-
-        return (
-            <div className="points">
-                {points}
-                <AddPoint/>
-            </div>
-        );
-    }
-}
 
 export default Points;
