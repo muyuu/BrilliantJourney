@@ -12,10 +12,10 @@ const App = () => (
         </div>
         
         <div className={styles.body}>
-            <div id="map" className={styles.map}></div>
             <div className={styles.content}>
                 <Body />
             </div>
+            <div id="map" className={styles.map}></div>
         </div>
         
         <div className={styles.footer}>
