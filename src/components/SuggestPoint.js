@@ -1,6 +1,4 @@
 import React from 'react';
-import {render} from 'react-dom';
-
 
 class SuggestPoint extends React.Component {
     constructor(props){
@@ -13,27 +11,31 @@ class SuggestPoint extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-
     handleChange(e){
+        const value = e.target.value;
+        const { point, onChangeText, onApply } = this.props;
+
         this.setState({
-            text: e.target.value
+            text: value
         });
 
-        this.props.onChangeText(this.props.point.id, encodeURI(e.target.value));
+        onChangeText(point.id, encodeURI(value));
+        onApply(point.id, {description: value, place_id: null});
     }
 
     selectPlace(v){
+        const { point, onApply, clearSuggestedText } = this.props;
+
         this.setState({
             text: v.description
         });
-        this.props.onApply(this.props.point.id, v);
-        this.props.clearSuggestedText(this.props.point.id);
-    }
 
+        onApply(point.id, v);
+        clearSuggestedText(point.id);
+    }
 
     render(){
         let places = this.props.point.suggested.items.map(v =>{
-            console.log(v);
             return(
                 <li key={v.place_id} onClick={ ()=> this.selectPlace(v)}>
                     {v.description}

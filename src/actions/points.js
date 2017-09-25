@@ -8,7 +8,13 @@ import {
     SET_POINT_DURATION,
 } from "./actionTypes";
 import type {PlaceElement} from '../types/suggested';
-import type {PointAction, Id, DepartureTime, ArrivalTime, Duration} from '../types/points';
+import type {
+    PointAction,
+    Id,
+    DepartureTime,
+    ArrivalTime,
+    Duration
+} from '../types/points';
 
 export const addPoint = (): PointAction =>{
     return {

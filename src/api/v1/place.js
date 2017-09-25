@@ -9,8 +9,6 @@ router.get('/', handleApiPlace);
 
 
 function handleApiPlace(req, res){
-    console.log('access /api/place');
-
     let query = {
         input: req.query.q,
         language: 'ja',
