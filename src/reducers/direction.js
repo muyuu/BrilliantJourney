@@ -8,7 +8,7 @@ const initialState = {
     json: null,
 };
 
-export const start = (state = initialState, action) =>{
+export const direction = (state = initialState, action) =>{
     switch(action.type){
 
         case REQUEST_DIRECTION:
