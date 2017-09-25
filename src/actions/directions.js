@@ -19,20 +19,24 @@ export const fetchDirection = (start, points) =>{
     return function(dispatch){
         let url = `/api/directions`;
 
-        let param = `?origin=place_id:${start.placeId}&destination=place_id:${start.placeId}`;
+        const hasPlaceId = point => point.placeId || point.placeId !== null;
+        const startPrefix = hasPlaceId(start) ? 'place_id:' : '';
 
-        const waypoints = points.map( val => `place_id:${val.placeId}` ).join('|');
+        let param = `?origin=${startPrefix}${start.placeId}&destination=${startPrefix}${start.placeId}`;
+
+        const waypoints = points.map( val => {
+            const pointPrefix = hasPlaceId(val) ? 'place_id:' : '';
+            return `${pointPrefix}${val.placeId}`;
+        }).join('|');
         param += `&waypoints=${waypoints}`;
 
         url = url + param;
 
         dispatch(requestDirection(url));
-        console.log(url);
 
         return fetch(url)
             .then(response => response.json())
             .then(json =>{
-                console.log(json);
                 dispatch(receiveDirection(json));
             })
             .catch((err)=>{
