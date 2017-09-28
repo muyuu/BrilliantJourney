@@ -16,3 +16,8 @@ export const RECEIVE_SEARCH = 'RECEIVE_SEARCH';
 // direction
 export const REQUEST_DIRECTION = 'REQUEST_DIRECTION';
 export const RECEIVE_DIRECTION = 'RECEIVE_DIRECTION';
+
+// map
+export const APPLY_MAP = 'APPLY_MAP';
+export const REQUEST_MAP= 'REQUEST_MAP';
+export const RECEIVE_MAP= 'RECEIVE_MAP';
