@@ -1,0 +1,5 @@
+@import '../config/vars';
+
+.map {
+    min-height: 400px;
+}

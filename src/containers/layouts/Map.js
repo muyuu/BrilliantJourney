@@ -5,6 +5,7 @@ import Map from '../../layouts/Map';
 const mapStateToProps = (state)=>{
     return {
         siteInfo: state.siteInfo,
+        map: state.map,
     };
 };
 

@@ -1,11 +1,30 @@
 // @flow
 import React from 'react';
-import {render} from 'react-dom';
+import styles from './map.css';
 
-const Map = (props: {siteInfo: {name: string}}) => {
+type MapProps = {
+    fetched: boolean;
+    ltlng: {};
+    requestObj: {};
+};
+
+type Porps = {
+    siteInfo: {
+        name: string;
+    };
+    map: MapProps;
+};
+
+const Map = ({ map }) => {
+    const { ltlng, fetched } = map;
+    const { mapInstance, markerInstance } = window;
+
+    if ( fetched === true && ltlng ) {
+        mapInstance.setCenter(ltlng);
+        markerInstance.setPosition(ltlng);
+    }
     return (
-        <div className="map">
-        </div>
+        <div id="map" className={styles.map}></div>
     );
 };
 

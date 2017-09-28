@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from '../containers/layouts/Header';
 import Body from '../containers/layouts/Body';
+import Map from '../containers/layouts/Map';
 import Footer from '../containers/layouts/Footer';
 import styles from './app.css';
 
@@ -15,7 +16,9 @@ const App = () => (
             <div className={styles.content}>
                 <Body />
             </div>
-            <div id="map" className={styles.map}></div>
+            <div className={styles.map}>
+                <Map />
+            </div>
         </div>
         
         <div className={styles.footer}>
