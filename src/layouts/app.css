@@ -18,10 +18,6 @@
     width: 50%;
 }
 
-.map {
-    min-height: 400px;
-}
-
 .content {
     margin-left: calc(var(--space) * 3);
 }
