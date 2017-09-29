@@ -2,7 +2,7 @@ import {
     SET_POINT_PLACE,
     REQUEST_MAP,
     RECEIVE_MAP,
-} from "../actions/actionTypes";
+} from "../actions";
 
 const initialState = {
     ltlng: null,

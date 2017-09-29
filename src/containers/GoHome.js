@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { fetchDirection } from '../actions/directions';
+import { fetchDirection } from '../actions';
 import GoHome from '../components/GoHome';
 
 const mapStateToProps = (state)=>{

@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchSearch} from '../actions/search';
+import {fetchSearch} from '../actions';
 import SearchBtn from '../components/SearchBtn';
 
 const mapStateToProps = (state)=>{

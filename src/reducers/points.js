@@ -6,7 +6,7 @@ import {
     REQUEST_POINT,
     RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT
-} from "../actions/actionTypes";
+} from "../actions";
 import {point} from './point';
 
 export const points = (state = [], action) =>{

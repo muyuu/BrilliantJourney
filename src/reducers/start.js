@@ -5,7 +5,7 @@ import {
     REQUEST_POINT,
     RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT
-} from "../actions/actionTypes";
+} from "../actions";
 import  {suggestPoint} from "./suggestPoint";
 
 const initialState = {

@@ -2,7 +2,7 @@ import {
     REQUEST_POINT,
     RECEIVE_POINT,
     CLEAR_SUGGESTED_TEXT,
-} from "../actions/actionTypes";
+} from "../actions";
 
 const initialState = {
     isFetching: false,

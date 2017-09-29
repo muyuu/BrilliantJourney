@@ -1,7 +1,7 @@
 import {
     REQUEST_DIRECTION,
     RECEIVE_DIRECTION,
-} from "../actions/actionTypes";
+} from "../actions";
 
 const initialState = {
     fetching: false,

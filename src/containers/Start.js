@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {pointDepartureTime} from '../actions/points';
+import {pointDepartureTime} from '../actions';
 import Start from '../components/Start';
 
 const mapStateToProps = (state)=>{
