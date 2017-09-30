@@ -26,6 +26,7 @@ const Map = ({ map, directionResult }) => {
         });
 
         if ( directionResult ) {
+            markerInstance.setMap(null);
             direction.setDirections(directionResult);
         } else {
             if ( fetched === true && ltlng ) {
