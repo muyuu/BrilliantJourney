@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch =>{
         },
         onApply: (id, placeInfo)=>{
             dispatch(pointPlace(id, placeInfo));
-            dispatch(applyMap(placeInfo));
+            dispatch(applyMap(id, placeInfo));
         },
         clearSuggestedText: (id)=>{
             dispatch(clearSuggestedText(id));

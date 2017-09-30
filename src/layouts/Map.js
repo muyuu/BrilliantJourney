@@ -13,15 +13,26 @@ type Porps = {
         name: string;
     };
     map: MapProps;
+    directionResult: {};
 };
 
-const Map = ({ map }) => {
+const Map = ({ map, directionResult }) => {
     const { ltlng, fetched } = map;
-    const { mapInstance, markerInstance } = window;
 
-    if ( fetched === true && ltlng ) {
-        mapInstance.setCenter(ltlng);
-        markerInstance.setPosition(ltlng);
+    if ( window.google ) {
+        const { mapInstance, markerInstance } = window;
+        const direction = new window.google.maps.DirectionsRenderer({
+            map: mapInstance,
+        });
+
+        if ( directionResult ) {
+            direction.setDirections(directionResult);
+        } else {
+            if ( fetched === true && ltlng ) {
+                mapInstance.setCenter(ltlng);
+                markerInstance.setPosition(ltlng);
+            }
+        }
     }
     return (
         <div id="map" className={styles.map}></div>
