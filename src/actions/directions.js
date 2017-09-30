@@ -85,7 +85,7 @@ export const fetchDirectionForMap = (start, points) =>{
             origin,
             destination,
             waypoints,
-            optimizeWaypoints: true,
+            // optimizeWaypoints: true,
             travelMode: window.google.maps.DirectionsTravelMode.DRIVING,
         };
 
