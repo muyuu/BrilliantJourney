@@ -4,8 +4,9 @@ import {
     SET_POINT_DEPARTURE_TIME,
     REQUEST_POINT,
     RECEIVE_POINT,
-    CLEAR_SUGGESTED_TEXT
-} from "../actions/actionTypes";
+    CLEAR_SUGGESTED_TEXT,
+    RECEIVE_MAP,
+} from "../actions";
 import  {suggestPoint} from "./suggestPoint";
 
 const initialState = {
@@ -32,6 +33,13 @@ export const start = (state = initialState, action) =>{
 
             return Object.assign({}, state, {
                 name: action.name,
+                placeId: action.placeId,
+            });
+            
+        case RECEIVE_MAP:
+            if(state.id !== action.id) return state;
+
+            return Object.assign({}, state, {
                 placeId: action.placeId,
             });
             

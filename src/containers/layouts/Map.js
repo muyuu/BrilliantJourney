@@ -1,11 +1,12 @@
 // @flow
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Map from '../../layouts/Map';
 
 const mapStateToProps = (state)=>{
     return {
         siteInfo: state.siteInfo,
         map: state.map,
+        directionResult: state.direction.directionResult,
     };
 };
 

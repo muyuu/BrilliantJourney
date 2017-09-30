@@ -5,8 +5,9 @@ import {
     SET_POINT_DURATION,
     REQUEST_POINT,
     RECEIVE_POINT,
-    CLEAR_SUGGESTED_TEXT
-} from "../actions/actionTypes";
+    CLEAR_SUGGESTED_TEXT,
+    RECEIVE_MAP,
+} from "../actions";
 import  {suggestPoint} from "./suggestPoint";
 
 export const point = (state, action) =>{
@@ -28,6 +29,11 @@ export const point = (state, action) =>{
         case SET_POINT_PLACE:
             return Object.assign({}, state, {
                 name: action.name,
+                placeId: action.placeId,
+            });
+
+        case RECEIVE_MAP:
+            return Object.assign({}, state, {
                 placeId: action.placeId,
             });
 

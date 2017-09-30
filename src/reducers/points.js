@@ -5,8 +5,9 @@ import {
     SET_POINT_DURATION,
     REQUEST_POINT,
     RECEIVE_POINT,
-    CLEAR_SUGGESTED_TEXT
-} from "../actions/actionTypes";
+    CLEAR_SUGGESTED_TEXT,
+    RECEIVE_MAP,
+} from "../actions";
 import {point} from './point';
 
 export const points = (state = [], action) =>{
@@ -23,6 +24,7 @@ export const points = (state = [], action) =>{
         case REQUEST_POINT:
         case RECEIVE_POINT:
         case CLEAR_SUGGESTED_TEXT:
+        case RECEIVE_MAP:
             return state.map((v) => {
                 if(v.id !== action.id) return v;
 

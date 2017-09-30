@@ -11,7 +11,7 @@ import reducers from './reducers';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import App from './layouts/App';
+import App from './containers/layouts/App';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
