@@ -1,4 +1,5 @@
 import React from 'react';
+import { debounce } from '../utils';
 
 class SuggestPoint extends React.Component {
     constructor(props){
@@ -13,24 +14,26 @@ class SuggestPoint extends React.Component {
 
     handleChange(e){
         const value = e.target.value;
-        const { point, onChangeText, onApply } = this.props;
+        const { point, fetchPoint, setInputedText} = this.props;
 
         this.setState({
             text: value
         });
 
-        onChangeText(point.id, encodeURI(value));
-        onApply(point.id, {description: value, place_id: null});
+        debounce(1000, ()=>{
+            fetchPoint(point.id, encodeURI(value));
+        });
+        setInputedText(point.id, {description: value, place_id: null});
     }
 
     selectPlace(v){
-        const { point, onApply, clearSuggestedText } = this.props;
+        const { point, setInputedText, clearSuggestedText } = this.props;
 
         this.setState({
             text: v.description
         });
 
-        onApply(point.id, v);
+        setInputedText(point.id, v);
         clearSuggestedText(point.id);
     }
 

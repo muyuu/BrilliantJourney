@@ -14,11 +14,12 @@
     display: flex;
 }
 
-.map, .content {
-    width: 50%;
+.map {
+    width: 70%;
 }
 
 .content {
+    width: 30%;
     margin-left: calc(var(--space) * 3);
 }
 
