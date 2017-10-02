@@ -16,10 +16,10 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = dispatch =>{
     return {
-        onChangeText: (id, text)=>{
+        fetchPoint: (id, text)=>{
             dispatch(fetchPoint(id, text));
         },
-        onApply: (id, placeInfo)=>{
+        setInputedText: (id, placeInfo)=>{
             dispatch(pointPlace(id, placeInfo));
             dispatch(applyMap(id, placeInfo));
         },
