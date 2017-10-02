@@ -13,11 +13,13 @@ const App = () => (
         </div>
         
         <div className={styles.body}>
-            <div className={styles.content}>
-                <Body />
-            </div>
-            <div className={styles.map}>
-                <Map />
+            <div className={styles.inner}>
+                <div className={styles.content}>
+                    <Body />
+                </div>
+                <div className={styles.map}>
+                    <Map />
+                </div>
             </div>
         </div>
         

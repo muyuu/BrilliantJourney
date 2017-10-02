@@ -12,6 +12,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import App from './containers/layouts/App';
+import styles from './index.css';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -32,7 +33,7 @@ let unsubscribe = store.subscribe(() =>
 
 const Root = () => (
     <Provider store={store}>
-        <App/>
+        <App className={styles.app} />
     </Provider>
 );
 
