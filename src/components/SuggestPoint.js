@@ -1,4 +1,5 @@
 import React from 'react';
+import { debounce } from '../utils';
 
 class SuggestPoint extends React.Component {
     constructor(props){
@@ -19,7 +20,9 @@ class SuggestPoint extends React.Component {
             text: value
         });
 
-        fetchPoint(point.id, encodeURI(value));
+        debounce(1000, ()=>{
+            fetchPoint(point.id, encodeURI(value));
+        });
         setInputedText(point.id, {description: value, place_id: null});
     }
 
