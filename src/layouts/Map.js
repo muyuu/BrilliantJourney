@@ -8,7 +8,7 @@ type MapProps = {
     requestObj: {};
 };
 
-type Porps = {
+type Props = {
     siteInfo: {
         name: string;
     };
@@ -16,7 +16,7 @@ type Porps = {
     directionResult: {};
 };
 
-const Map = ({ map, directionResult }) => {
+const Map = ({ map, directionResult }: Props) => {
     const { ltlng, fetched } = map;
 
     if ( window.google ) {

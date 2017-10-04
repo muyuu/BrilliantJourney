@@ -12,13 +12,15 @@ const initialState = {
 export const map = (state = initialState, action) =>{
     switch(action.type){
         case REQUEST_MAP:
+            console.log(action.requestObj);
             return Object.assign({}, state, {
                 fetched: false,
                 ltlng: null,
                 requestObj: action.requestObj,
             });
             
-            case RECEIVE_MAP:
+        case RECEIVE_MAP:
+            console.log(action.ltlng);
             return Object.assign({}, state, {
                 requestObj: {},
                 fetched: true,

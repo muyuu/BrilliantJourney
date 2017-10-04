@@ -7,23 +7,15 @@ import {
     SET_POINT_DEPARTURE_TIME,
     SET_POINT_DURATION,
 } from "./actionTypes";
-import type {PlaceElement} from '../types/suggested';
-import type {
-    PointAction,
-    Id,
-    DepartureTime,
-    ArrivalTime,
-    Duration
-} from '../types/points';
 
-export const addPoint = (): PointAction =>{
+export const addPoint = (): AddPointInputAction =>{
     return {
         type: ADD_POINT_INPUT,
         id: shortId(),
     };
 };
 
-export const pointPlace = (id: Id, placeElement: PlaceElement): PointAction => {
+export const pointPlace = (id: Id, placeElement: PlaceElement): SetPointPlaceAction => {
     return {
         type: SET_POINT_PLACE,
         id,
@@ -32,7 +24,7 @@ export const pointPlace = (id: Id, placeElement: PlaceElement): PointAction => {
     };
 };
 
-export const pointDepartureTime = (id: Id, departureTime: DepartureTime): PointAction => {
+export const pointDepartureTime = (id: Id, departureTime: DepartureTime): SetPointDepartureTimeAction => {
     departureTime = new Date(departureTime).getTime();
     return {
         type: SET_POINT_DEPARTURE_TIME,
@@ -41,7 +33,7 @@ export const pointDepartureTime = (id: Id, departureTime: DepartureTime): PointA
     };
 };
 
-export const pointArrivalTime = (id: Id, arrivalTime: ArrivalTime): PointAction => {
+export const pointArrivalTime = (id: Id, arrivalTime: ArrivalTime): SetPointArrivalTimeAction => {
     arrivalTime = new Date(arrivalTime).getTime();
     return {
         type: SET_POINT_ARRIVAL_TIME,
@@ -50,7 +42,7 @@ export const pointArrivalTime = (id: Id, arrivalTime: ArrivalTime): PointAction 
     };
 };
 
-export const pointDuration = (id: Id, duration: Duration): PointAction => {
+export const pointDuration = (id: Id, duration: Duration): SetPointDurationAction => {
     duration = parseInt(duration, 10);
     return {
         type: SET_POINT_DURATION,
