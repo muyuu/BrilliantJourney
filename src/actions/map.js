@@ -4,7 +4,7 @@ import {
     RECEIVE_MAP,
 } from "./actionTypes";
 
-const requestMap = (id, requestObj) =>{
+const requestMap = (id: string, requestObj: RequestObj): RequestMapAction =>{
     return {
         type: REQUEST_MAP,
         id,
@@ -13,7 +13,7 @@ const requestMap = (id, requestObj) =>{
     };
 };
 
-const receiveMap = (id, result) => {
+const receiveMap = (id: string, result: any): ReceiveMapAction => {
     return {
         type: RECEIVE_MAP,
         id,
@@ -23,8 +23,8 @@ const receiveMap = (id, result) => {
     };
 };
 
-export const applyMap = (id, {description, place_id}: {description: string; place_id: ?string;}) => {
-    return function(dispatch){
+export function applyMap(id: string, {description, place_id}: PlaceElement): ThunkAction {
+    return (dispatch, getState) => {
         const prm = {};
 
         if ( place_id === null ) {
@@ -39,7 +39,7 @@ export const applyMap = (id, {description, place_id}: {description: string; plac
             dispatch(receiveMap(id, result));
         });
     };
-};
+}
 
 function requestGeoCode (prm) {
     const geocoder = new window.google.maps.Geocoder();
