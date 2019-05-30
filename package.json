@@ -20,7 +20,7 @@
     "isomorphic-fetch": "^2.2.1",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.6",
+    "postcss-loader": "^3.0.0",
     "postcss-mixins": "^6.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
